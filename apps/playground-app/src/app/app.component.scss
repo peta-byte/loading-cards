@@ -1,0 +1,24 @@
+.cards {
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  overflow-y: auto;
+  padding: 20px 0;
+}
+
+.card {
+  min-width: 200px;
+  width: 250px;
+  min-height: 350px;
+  background-color: #ffffff;
+
+  img {
+    width: 100%;
+  }
+
+  .card-body {
+    text-align: center;
+  }
+}

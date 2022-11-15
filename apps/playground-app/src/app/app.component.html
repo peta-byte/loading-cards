@@ -1,9 +1,26 @@
-<div style="text-align: center">
-  <h1>Welcome to playground-app!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Fast and Extensible Build System"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary" mode="ios">
+      <ion-title>GraphQL Playground</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div id="users" class="container cards">
+      <ion-card id="user" *ngFor="let usr of users; let idx=index;" class="card">
+        <ion-card-content>
+          <div><img [src]="usr?.picture?.large" class="card-img-top" alt="random user's photo"></div>
+          <div class="card-body">
+            <h5 class="card-title">{{ usr.name.title }} {{ usr.name.first }} {{usr.name.last}}</h5>
+            <p class="card-text">{{usr.gender}}</p>
+            <p class="card-text">{{usr.email}}</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar color="primary" mode="ios">
+      <ion-title>By Brenda Chepkorir © 2022</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>

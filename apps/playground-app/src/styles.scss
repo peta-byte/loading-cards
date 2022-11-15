@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+	--ion-background-color: #eafffd;
+	--ion-background-color-rgb: 234,255,253;
+
+  --ion-color-primary: #005248;
+
+	--ion-text-color: #000000;
+	--ion-text-color-rgb: 0,0,0;
+
+	--ion-color-step-50: #def2f0;
+	--ion-color-step-100: #d3e6e4;
+	--ion-color-step-150: #c7d9d7;
+	--ion-color-step-200: #bbccca;
+	--ion-color-step-250: #b0bfbe;
+	--ion-color-step-300: #a4b3b1;
+	--ion-color-step-350: #98a6a4;
+	--ion-color-step-400: #8c9998;
+	--ion-color-step-450: #818c8b;
+	--ion-color-step-500: #75807f;
+	--ion-color-step-550: #697372;
+	--ion-color-step-600: #5e6665;
+	--ion-color-step-650: #525959;
+	--ion-color-step-700: #464d4c;
+	--ion-color-step-750: #3b403f;
+	--ion-color-step-800: #2f3333;
+	--ion-color-step-850: #232626;
+	--ion-color-step-900: #171919;
+	--ion-color-step-950: #0c0d0d;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}

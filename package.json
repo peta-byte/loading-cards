@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "nx",
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
-    "start": "nx serve",
+    "start:api": "nx serve api",
+    "start:app": "nx serve playground-app",
     "build": "nx build",
     "test": "nx test"
   },
@@ -19,10 +20,12 @@
     "@angular/platform-browser": "~14.1.1",
     "@angular/platform-browser-dynamic": "~14.1.1",
     "@angular/router": "~14.1.1",
+    "@nestjs/axios": "^1.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nrwl/angular": "14.5.10",
+    "graphql": "^16.6.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
