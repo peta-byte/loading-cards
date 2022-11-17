@@ -1,0 +1,12 @@
+<div id="users" class="container cards">
+  <ion-card id="user" *ngFor="let usr of users; let idx=index;" class="card">
+    <ion-card-content>
+      <div><img [src]="usr?.picture?.large" class="card-img-top" alt="random user's photo"></div>
+      <div class="card-body">
+        <h5 class="card-title">{{ usr.name.title }} {{ usr.name.first }} {{usr.name.last}}</h5>
+        <p class="card-text">{{usr.gender}}</p>
+        <p class="card-text">{{usr.email}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</div>

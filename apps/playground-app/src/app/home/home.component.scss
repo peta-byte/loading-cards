@@ -1,0 +1,22 @@
+.cards {
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.card {
+  min-width: 200px;
+  width: 250px;
+  min-height: 350px;
+  background-color: #ffffff;
+
+  img {
+    width: 100%;
+  }
+
+  .card-body {
+    text-align: center;
+  }
+}
