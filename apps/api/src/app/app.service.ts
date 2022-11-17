@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { graphql, GraphQLFieldConfig, GraphQLObjectType, GraphQLSchema } from 'graphql'
 import { HttpService } from '@nestjs/axios'
 import { lastValueFrom } from 'rxjs';
-import { Demographics, Gender, Nationalities, queries, User, Users } from '@graphql-playground/api-interfaces'
+import { Demographics, Gender, Nationalities, queries, User, Users } from '@graphql-playground/api-interfaces';
 
 const apiURL = 'https://randomuser.me/api/?format=json';
 
