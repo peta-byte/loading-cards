@@ -6,10 +6,13 @@
         </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-item button id="open-gender-modal" expand="block">
+      <ion-item button href="/home">
+        <ion-label>Home</ion-label>
+      </ion-item>
+      <ion-item button href="/gender">
         <ion-label>Gender</ion-label>
       </ion-item>
-      <ion-item button id="open-nationalities-modal" expand="block">
+      <ion-item button href="/nationalities">
         <ion-label>Nationalities</ion-label>
       </ion-item>
     </ion-content>
@@ -24,18 +27,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <div id="users" class="container cards">
-        <ion-card id="user" *ngFor="let usr of users; let idx=index;" class="card">
-          <ion-card-content>
-            <div><img [src]="usr?.picture?.large" class="card-img-top" alt="random user's photo"></div>
-            <div class="card-body">
-              <h5 class="card-title">{{ usr.name.title }} {{ usr.name.first }} {{usr.name.last}}</h5>
-              <p class="card-text">{{usr.gender}}</p>
-              <p class="card-text">{{usr.email}}</p>
-            </div>
-          </ion-card-content>
-        </ion-card>
-      </div>
+      <ion-router-outlet></ion-router-outlet>
     </ion-content>
     <ion-footer>
       <ion-toolbar color="primary" mode="ios">
@@ -44,5 +36,3 @@
     </ion-footer>
   </div>
 </ion-app>
-<graphql-playground-gender></graphql-playground-gender>
-<graphql-playground-nationalities></graphql-playground-nationalities>
