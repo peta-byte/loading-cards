@@ -18,3 +18,6 @@ User data API: <a href="https://randomuser.me/"><p>Random User Generator</p></a>
 <li><a href="https://docs.nestjs.com/">NestJS</a></li>
 <li><a href="https://docs.nestjs.com/graphql/quick-start">GraphQL</a></li>
 </ul>
+
+<h3>Getting Started</h3>
+<p>In separate terminals, run <code>npm run start:api</code> and <code>npm run start:app</code></p>
