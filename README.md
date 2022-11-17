@@ -7,3 +7,14 @@
 <p align="center">
   <img align="center" src="https://github.com/peta-byte/loading-cards/blob/update-readme/apps/playground-app/src/assets/graphql2.png" />
 </p>
+
+<h3>Data Sources:</h3>
+User data API: <a href="https://randomuser.me/"><p>Random User Generator</p></a>
+
+<h3>Guides for Development</h3>
+<ul>
+<li><a href="https://nx.dev/getting-started/intro">Nx</a></li>
+<li><a href="https://ionicframework.com/docs">Ionic</a></li>
+<li><a href="https://docs.nestjs.com/">NestJS</a></li>
+<li><a href="https://docs.nestjs.com/graphql/quick-start">GraphQL</a></li>
+</ul>
