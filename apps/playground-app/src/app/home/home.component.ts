@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Usr, GraphQLResponse } from '@graphql-playground/api-interfaces';
-import { Observable, lastValueFrom } from 'rxjs';
+import { Usr } from '@graphql-playground/api-interfaces';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'graphql-playground-home',
@@ -11,14 +10,10 @@ import { Observable, lastValueFrom } from 'rxjs';
 export class HomeComponent implements OnInit {
   users: Usr[] = [];
 
-  user$: Observable<GraphQLResponse> = this.http.get<GraphQLResponse>('/api/user')
-  users$: Observable<GraphQLResponse> = this.http.get<GraphQLResponse>('/api/users')
-
-  constructor(private http: HttpClient) {}
+  constructor(private appService: AppService) {}
 
   ngOnInit(): void {
-    lastValueFrom(this.users$).then((res) => {
-      this.users = res.data.users ?? []
-    })
+    this.appService.getUsers$().subscribe((users) => (this.users = users ?? []));
+    this.appService.loadUsers();
   }
 }

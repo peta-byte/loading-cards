@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { GraphQLResponse } from '@graphql-playground/api-interfaces';
-import { IonModal } from '@ionic/angular';
-import { lastValueFrom, Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Usr } from '@graphql-playground/api-interfaces';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'graphql-playground-gender',
@@ -10,28 +8,21 @@ import { lastValueFrom, Observable } from 'rxjs';
   styleUrls: ['./gender.component.scss'],
 })
 export class GenderComponent implements OnInit {
-  @ViewChild(IonModal) modal!: IonModal;
-  gender$: Observable<GraphQLResponse> = this.http.get<GraphQLResponse>('/api/gender')
-
   gender: string[] = [];
   male = 0;
   female = 0;
 
-  constructor(private http: HttpClient) {}
+  constructor(private appService: AppService) {}
 
   ngOnInit(): void {
-    this.getGender()
+    this.appService.getUsers$().subscribe(this.getGender.bind(this));
   }
 
-  getGender() {
-    lastValueFrom(this.gender$).then((res) => {
-      this.gender = res.data.gender?.gender ?? []
-      this.male = this.gender?.filter((g) => g === 'male')?.length
-      this.female = this.gender?.filter((g) => g === 'female')?.length
-    })
-  }
-
-  cancel(): void {
-    this.modal.dismiss(null, 'cancel');
+  getGender(users: Usr[]) {
+    if (users) {
+      this.gender = users.map((user: Usr) => user.gender)
+      this.male = this.gender.filter((g) => g.toLowerCase() === 'male')?.length
+      this.female = this.gender.filter((g) => g.toLowerCase() === 'female')?.length
+    }
   }
 }

@@ -1,4 +1,4 @@
-<div id="users" class="container cards">
+<div *ngIf="users?.length" id="users" class="container cards">
   <ion-card id="user" *ngFor="let usr of users; let idx=index;" class="card">
     <ion-card-content>
       <div><img [src]="usr?.picture?.large" class="card-img-top" alt="random user's photo"></div>

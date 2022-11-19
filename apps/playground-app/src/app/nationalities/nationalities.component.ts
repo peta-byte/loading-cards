@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { GraphQLResponse } from '@graphql-playground/api-interfaces';
-import { IonModal } from '@ionic/angular';
-import { lastValueFrom, Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Usr } from '@graphql-playground/api-interfaces';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'graphql-playground-nationalities',
@@ -10,24 +8,17 @@ import { lastValueFrom, Observable } from 'rxjs';
   styleUrls: ['./nationalities.component.scss'],
 })
 export class NationalitiesComponent implements OnInit {
-  @ViewChild(IonModal) modal!: IonModal;
-  nationalities$: Observable<GraphQLResponse> = this.http.get<GraphQLResponse>('/api/nationalities')
-
   nationalities: string[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private appService: AppService) {}
 
   ngOnInit(): void {
-    this.getNationalities()
+    this.appService.getUsers$().subscribe(this.getNationalities.bind(this));
   }
 
-  getNationalities() {
-    lastValueFrom(this.nationalities$).then((res) => {
-      this.nationalities = res.data.nationalities?.nationalities ?? []
-    })
-  }
-
-  cancel(): void {
-    this.modal.dismiss(null, 'cancel');
+  getNationalities(users: Usr[]) {
+    if (users) {
+      this.nationalities = users.map((user: Usr) => user.nat)
+    }
   }
 }
