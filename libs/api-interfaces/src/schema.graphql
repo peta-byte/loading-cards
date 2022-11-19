@@ -1,0 +1,79 @@
+type Query {
+  user: User
+  users: [User]
+  demographics: Demographics
+  gender(filter: String): Gender
+  nationalities: Nationalities
+}
+type User {
+  gender: String!
+  name: Name!
+  location: Location
+  email: String!
+  login: Login
+  dob: DateAge
+  registered: DateAge
+  phone: String
+  cell: String
+  id: UserID
+  picture: Picture
+  nat: String
+}
+type Name {
+  title: String
+  first: String
+  last: String
+}
+type Street {
+  number: Int
+  name: String
+}
+type Coordinates {
+  latitude: String
+  longitude: String
+}
+type Timezone {
+  offset: String
+  description: String
+}
+type Location {
+  street: Street
+  city: String
+  state: String
+  country: String
+  postcode: String
+  coordinates: Coordinates
+  timezone: Timezone
+}
+type Login {
+  uuid: String
+  username: String
+  password: String
+  md5: String
+  sha1: String
+  sha256: String
+  salt: String
+}
+type DateAge {
+  date: String
+  age: Int
+}
+type UserID {
+  name: String
+  value: String
+}
+type Picture {
+  large: String
+  medium: String
+  thumbnail: String
+}
+type Gender {
+  gender: [String]
+}
+type Nationalities {
+  nationalities: [String]
+}
+type Demographics {
+  nationalities: [String]
+  gender: [String]
+}

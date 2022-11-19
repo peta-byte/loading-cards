@@ -8,9 +8,10 @@ export interface Usr {
     last: string;
     title: string;
   };
-  picture?: {
+  picture: {
     large?: string;
-  }
+  };
+  nat: string;
 }
 
 export interface GraphQLResponse {
